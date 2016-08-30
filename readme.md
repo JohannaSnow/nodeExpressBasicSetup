@@ -32,8 +32,10 @@ Next, let's install 'body-parser' the same way:
 * npm install body-parser --save
 
 Regarding .gitignore and dependencies
----------------------------
+-------------------------------------
 Create a file names ".gitignore" in your project folder. Files and folders listed in this file are ignored by (wait for it...) git. One of the things that 'package.json' does is allow you to NOT upload your node modules to github. They can be installed by anyone so by having them listed in package.json we can add them to .gitignore like so:
 ![alt text](pics/3 - gitignore.png)
 
 When users pull, fork, or otherwise download a project like this one they need only run "npm install" in the command line to install all needed dependencies. Npm will read what the dependencies are from the package.json file and automatically instal them in the project.
+
+Go ahead and give it a shot for yourself... Clone or forked this repo to a new folder. Note that there's no "node_modules" folder. Make sure 'npm init' has been run in the folder and run 'npm install'. You'll see express and body-parser both get installed.

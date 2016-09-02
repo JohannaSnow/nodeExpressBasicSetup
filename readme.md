@@ -16,7 +16,7 @@ You'll now see a "package.json" file in this folder. More on this later.
 
 For now, let's install the node modules we need. In the console and still in the project folder type the following:
 
-* npm install express -- save
+* npm install express --save
 
 ![alt text](pics/1 - installExpress.png)
 

@@ -39,3 +39,58 @@ Create a file names ".gitignore" in your project folder. Files and folders liste
 When users pull, fork, or otherwise download a project like this one they need only run "npm install" in the command line to install all needed dependencies. Npm will read what the dependencies are from the package.json file and automatically instal them in the project.
 
 Go ahead and give it a shot for yourself... Clone or forked this repo to a new folder. Note that there's no "node_modules" folder. Make sure 'npm init' has been run in the folder and run 'npm install'. You'll see express and body-parser both get installed.
+
+Setting up a VERY basic server
+------------------------------
+At this point you should be ready to set up a SUPER simple little internet microcosm. You should have NPM installed and a project folder in which NPM init has been run as well as having node and express installed with --save.
+
+First, create a "server" folder in your project folder. Within this "server" folder create an "app.js" file. Open this file and add the following code:
+
+```javascript
+var express = require( 'express' );
+var app = express();
+
+app.listen( '8080', 'localhost', function( req, res ){
+  console.log( 'server listening on port 8080' );
+}); //end app.listen
+```
+
+When run, this will set up a basic server on port 8080. In terminal in this folder, run the following:
+* node server/app.js
+
+You'll see the console log from the code in terminal.
+
+![alt text](pics/4 - basicServerSpunUp.png)
+
+NOTE:
+* Client-side console logs show up in browser (as we've seen)
+* Server-side console logs appear in the terminal
+
+You can stop a running server by pressing "control+c" in the terminal.
+
+Now that we've got a local server up and running, let's make it capable of actually doing something. Add the following code at the bottom of the app.js file:
+
+```javascript
+app.get( '/', function( req, res ){
+  console.log( 'base URL hit' );
+});
+```
+
+This sets up a "get" endpoint for the server at "/". This is the "base URL" for the server. If you spin up your server again ('node server/app.js' in the console) and then open "localhost:8080" in your browser you'll see the "base URL hit" console log in the terminal.
+
+![alt text](pics/5 - basicServerHit.png)
+
+The server now has received a "get" request for some content at the base URL of our server, but isn't sending anything back.
+
+Let's fix that.
+
+Add the following line to our new "app.get" function:
+```javascript
+res.send( 'hello world from server!' );
+```
+
+Place this below the console log command. Now restart the server ('control+c' then 'node server/app.js') and reload 'localhost:8080' in your browser. You should see the hello world from server text in browser now.
+
+![alt text](pics/6 - helloWorldFromServer)
+
+We've now set up a REALLY basic server, added a get endpoint, hit that URL from our browser (the client), and sent back some text from the server.

@@ -91,6 +91,6 @@ res.send( 'hello world from server!' );
 
 Place this below the console log command. Now restart the server ('control+c' then 'node server/app.js') and reload 'localhost:8080' in your browser. You should see the hello world from server text in browser now.
 
-![alt text](pics/6 - helloWorldFromServer)
+![alt text](pics/6 - helloWorldFromServer.png)
 
 We've now set up a REALLY basic server, added a get endpoint, hit that URL from our browser (the client), and sent back some text from the server.
